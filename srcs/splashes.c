@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wolf.h                                             :+:      :+:    :+:   */
+/*   splashes.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/15 18:44:38 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/15 18:49:23 by dnelson          ###   ########.fr       */
+/*   Created: 2017/07/19 14:04:22 by dnelson           #+#    #+#             */
+/*   Updated: 2017/07/19 15:40:27 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WOLF_H
-# define WOLF_H
-# include "libft.h"
-# include <mlx.h>
-# include <math.h>
+#include "wolf3d.h"
 
+void	splash(t_env *env)
+{
+	env->start = 0;
+	mlx_put_image_to_window(env->mlx, env->win, env->splash, 0, 0);
+	mlx_string_put(env->mlx, env->win, 255, 281, 0xFFFFFF, "Press Enter");
+}
 
-
-#endif
+void	winner(t_env *env)
+{
+	env->game_over = 1;
+	mlx_put_image_to_window(env->mlx, env->win, env->gg, 0, 0);
+	mlx_string_put(env->mlx, env->win, 290, 400, 0xFFFFFF, "Press Enter to \
+			restart");
+}

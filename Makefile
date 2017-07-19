@@ -6,14 +6,22 @@
 #    By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/06 14:07:33 by dnelson           #+#    #+#              #
-#    Updated: 2017/07/15 16:35:55 by dnelson          ###   ########.fr        #
+#    Updated: 2017/07/19 15:28:02 by dnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = wolf3d
 
 SRC = main.c \
-
+	  calculations.c \
+	  keyhooks.c \
+	  game.c \
+	  map_stuff.c \
+	  movement.c \
+	  raycast.c \
+	  strafe_movement.c \
+	  splashes.c \
+	  textures.c \
 
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 

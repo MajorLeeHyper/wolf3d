@@ -325,6 +325,29 @@ void	*mlx_xpm_file_to_image(mlx_ptr_t *xvar,char *file,int *width,int *height)
   return (img);
 }
 
+void  *mlx_xpm_to_img(mlx_ptr_t *xvar,char *file,int *width,int *height)
+{
+  int fd;
+  int size;
+  char  *ptr;
+  mlx_img_list_t  *img;
+
+  if ((fd = open(file,O_RDONLY))==-1 || (size = lseek(fd,0,SEEK_END))==-1 ||
+      (ptr = mmap(0,size,PROT_WRITE|PROT_READ,MAP_PRIVATE,fd,0))==
+      (void *)MAP_FAILED)
+    {
+      if (fd>=0)
+  close(fd);
+      return ((void *)0);
+    }
+  mlx_int_file_get_rid_comment(ptr, size);
+  if ((img = mlx_int_parse_xpm(xvar,ptr,size,mlx_int_get_line)))
+    ;
+  munmap(ptr,size);
+  close(fd);
+  return (img);
+}
+
 void	*mlx_xpm_to_image(mlx_ptr_t *xvar,char **xpm_data,int *width,int *height)
 {
   mlx_img_list_t	*img;

@@ -6,19 +6,19 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 15:29:35 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/18 16:10:37 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/19 16:21:17 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf3d.h"
 
-void	texture_calculation(t_env *env)
+void	texture_calculations(t_env *env)
 {
 	env->texnum = env->worldmap[env->mapx][env->mapy];
 	if (env->side == 0)
-		env->wallx = env->rayposy + env-<perpwalldist * env->raydiry;
+		env->wallx = env->rayposy + env->perwalldist * env->raydiry;
 	else
-		env->wallx = env->rayposx + env->perpwalldist * env->raydirx;
+		env->wallx = env->rayposx + env->perwalldist * env->raydirx;
 	env->wallx -= (int)env->wallx;
 }
 
@@ -61,10 +61,10 @@ int		texture_color(t_env *env, int x, int y)
 
 void	add_textures(t_env *env)
 {
-	env->splash = mlx_xpm_to_img(env->mlx, /*"insert file path here"*/);
-	env->gg = mlx_xpm_to_img(env->mlx, /*"insert file path here"*/);
-	env->ceiling = mlx_xpm_to_img(env->mlx, /*"insert file path here"*/);
-	env->wall = mlx_xpm_to_img(env->mlx, /*"insert file path here"*/);
-	env->floor = mlx_xpm_to_img(env->mlx, /*"insert file path here"*/);
-	env->goal = mlx_xpm_to_img(env->mlx, /*"insert file path here"*/);
+	env->splash = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
+	env->gg = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
+	env->ceiling = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
+	env->wall = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
+	env->floor = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
+	env->goal = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
 }

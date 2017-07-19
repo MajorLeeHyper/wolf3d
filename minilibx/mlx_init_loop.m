@@ -114,6 +114,22 @@ void mlx_pixel_put(mlx_ptr_t *mlx_ptr, mlx_win_list_t *win_ptr, int x, int y, in
   win_ptr->nb_flush ++;
 }
 
+int mlx_get_pixel_clr(mlx_img_list_t *img, int x, int y)
+{
+  int r;
+  int g;
+  int b;
+  unsigned int p;
+
+  if (x < 0 || x >= img->width || y < 0 || y >= img->height)
+    return (0);
+  p = (x * UNIQ_BPP) + (y * (img->width * UNIQ_BPP));
+  r = img->buffer[p + 2];
+  g = img->buffer[p + 1];
+  b = img->buffer[p];
+  return (((r & 0xFF) << 16) + ((g & 0xFF) << 8) + (b & 0xFF));
+}
+
 
 void	mlx_int_loop_once()
 {
