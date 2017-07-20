@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/19 14:40:39 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/19 17:44:03 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 15:52:48 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,5 @@ void	wall_height(t_env *env)
 		env->drawstart = 0;
 	env->drawend = env->lineheight / 2 + WIN_Y / 2;
 	if (env->drawend >= WIN_Y)
-		env->drawend = WIN_Y -1;
+		env->drawend = WIN_Y - 1;
 }

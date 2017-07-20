@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 15:29:35 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/20 13:27:39 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 15:52:28 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	texture_x(int x, t_env *env)
 	int		color;
 	int		y;
 
-	texx= (int)(env->wallx * (double)TEXWIDTH);
+	texx = (int)(env->wallx * (double)TEXWIDTH);
 	if (env->side == 0 && env->raydirx > 0)
 		texx = TEXWIDTH - texx - 1;
 	if (env->side == 1 && env->raydiry < 0)
@@ -54,7 +54,7 @@ void	texture_x(int x, t_env *env)
 int		texture_color(t_env *env, int x, int y)
 {
 	int		color;
-	
+
 	if (env->texnum != 4)
 		color = mlx_get_pixel_clr(env->wall, x, y);
 	else if (env->texnum != 4 && env->side == 1)
