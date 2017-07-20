@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 16:25:52 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/18 09:45:55 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 15:30:58 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,28 @@ void	map_allocation(t_env *env)
 		env->worldmap[i] = (int*)malloc(sizeof(int) * 24);
 }
 
+void	more_wall(int x, int y, t_env *env)
+{
+	if (y == 16 && x >= 1 && x <= 22)
+	{
+		if (x == 19 || x == 1)
+			env->worldmap[x][y] = 0;
+		else
+			env->worldmap[x][y] = 3;
+	}
+	else if (x == 2 && y >= 1 && y <= 22)
+	{
+		if (y == 10 || y == 20)
+			env->worldmap[x][y] = 0;
+		else
+			env->worldmap[x][y] = 2;
+	}
+	else
+		env->worldmap[x][y] = 0;
+}
+
 void	wall_placer(int x, int y, t_env *env)
 {
-	//need to adjust to make custom map
 	if (x == 0)
 		env->worldmap[x][y] = 2;
 	else if (y == 0)
@@ -32,18 +51,18 @@ void	wall_placer(int x, int y, t_env *env)
 	else if (x == 23 || y == 23)
 		env->worldmap[x][y] = 1;
 	else if (x == 15 && y >= 6 && y <= 16)
+		env->worldmap[x][y] = 3;
+	else if (y == 6 && x >= 1 && x <= 22)
 	{
-		if ( y == 11)
+		if (x == 13 || x == 20)
 			env->worldmap[x][y] = 0;
 		else
 			env->worldmap[x][y] = 3;
 	}
-	else if (y == 6 && x >= 9 && x <= 16)
-		env->worldmap[x][y] = 3;
 	else if (y == 16 && x >= 16 && x <= 22)
 		env->worldmap[x][y] = 3;
 	else
-		env->worldmap[x][y] = 0;
+		more_wall(x, y, env);
 }
 
 void	map_builder(t_env *env)

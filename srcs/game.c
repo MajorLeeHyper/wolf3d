@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 11:01:32 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/20 13:42:51 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 15:16:30 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	gg_check(t_env *env)
 			|| ((int)env->posx == env->kx && (int)(env->posy + env->diry) ==
 				env->ky))
 	{
-		system("killall afplay");
 		winner(env);
 	}
 }
@@ -68,7 +67,6 @@ void	game_on(t_env *env)
 	{
 		while (x < WIN_X)
 		{
-			//all of the necessary functions names
 			ray_cast_vars(x, env);
 			cast_rays(env);
 			calc_step_and_side(env);
@@ -82,5 +80,5 @@ void	game_on(t_env *env)
 		}
 	}
 	else
-		system("afplay sounds/hold.mp3 &");
+		system("afplay -v 5 sounds/hold.mp3 &");
 }
