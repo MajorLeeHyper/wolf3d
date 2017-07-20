@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 11:01:32 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/19 15:27:42 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 13:42:51 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	set_initial_values(t_env *env)
 {
 	env->posx = 22.0;
 	env->posy = 11.5;
-	env->dirx = -1;
-	env->diry = 0;
-	env->planex = 0;
-	env->planey = .66;
+	env->dirx = -0.995788;
+	env->diry = 0.0;
+	env->planex = 0.0;
+	env->planey = 0.66;
 	env->rotation = .35;
 	env->game_over = 0;
 	env->kx = 0;
@@ -35,7 +35,7 @@ void	spawn_goal(t_env *env)
 	int		y;
 
 	x = 22;
-	x = 11;
+	y = 11;
 	srand(time(NULL));
 	{
 		x = rand() % 24;
@@ -82,5 +82,5 @@ void	game_on(t_env *env)
 		}
 	}
 	else
-		system("afplay sounds/victory.mp3 &");
+		system("afplay sounds/hold.mp3 &");
 }

@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 15:29:35 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/19 16:21:17 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 13:27:39 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ void	texture_x(int x, t_env *env)
 		texy = ((d * TEXHEIGHT) / env->lineheight) / 256;
 		color = texture_color(env, texx, texy);
 		if (env->side == 1 && env->texnum != 4)
-			color = (color >> 1) & 83;
+		{
+			color = mlx_get_pixel_clr(env->ice, texx, texy);
+			color = (color >> 1) & 8355711;
+		}
 		mlx_pixel_put(env->mlx, env->win, x, y, color);
 		y++;
 	}
@@ -54,6 +57,8 @@ int		texture_color(t_env *env, int x, int y)
 	
 	if (env->texnum != 4)
 		color = mlx_get_pixel_clr(env->wall, x, y);
+	else if (env->texnum != 4 && env->side == 1)
+		color = mlx_get_pixel_clr(env->ice, x, y);
 	else
 		color = mlx_get_pixel_clr(env->goal, x, y);
 	return (color);
@@ -61,10 +66,11 @@ int		texture_color(t_env *env, int x, int y)
 
 void	add_textures(t_env *env)
 {
-	env->splash = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
-	env->gg = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
-	env->ceiling = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
-	env->wall = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
-	env->floor = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
-	env->goal = mlx_xpm_to_img(env->mlx, "./textures/blue_wall.xpm");
+	env->splash = mlx_xpm_to_img(env->mlx, "./textures/splash_small.xpm");
+	env->gg = mlx_xpm_to_img(env->mlx, "./textures/he_held_door.xpm");
+	env->ceiling = mlx_xpm_to_img(env->mlx, "./textures/sky.xpm");
+	env->wall = mlx_xpm_to_img(env->mlx, "./textures/ice.xpm");
+	env->ice = mlx_xpm_to_img(env->mlx, "./textures/ice_test.xpm");
+	env->floor = mlx_xpm_to_img(env->mlx, "./textures/snow.xpm");
+	env->goal = mlx_xpm_to_img(env->mlx, "./textures/hodor.xpm");
 }

@@ -6,7 +6,7 @@
 #    By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/06 14:07:33 by dnelson           #+#    #+#              #
-#    Updated: 2017/07/19 15:28:02 by dnelson          ###   ########.fr        #
+#    Updated: 2017/07/20 12:07:22 by dnelson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC = main.c \
 	  strafe_movement.c \
 	  splashes.c \
 	  textures.c \
+	  replay.c
 
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 

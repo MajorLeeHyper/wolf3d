@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/19 13:12:50 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/19 15:33:42 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 13:11:22 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	cast_rays(t_env *env)
 {
 	env->mapx = (int)env->rayposx;
 	env->mapy = (int)env->rayposy;
-	env->deltadisty = sqrt(1 + (env->raydiry * env->raydiry) /
+	env->deltadistx = sqrt(1 + (env->raydiry * env->raydiry) /
 			(env->raydirx * env->raydirx));
 	env->deltadisty = sqrt(1 + (env->raydirx * env->raydirx) /
 			(env->raydiry * env->raydiry));
@@ -77,9 +77,7 @@ void	more_floor_cast(int x, t_env *e)
 			(1.0 - e->weight) * e->posy;
 		e->floortexx = (int)(e->currentfloorx * TEXWIDTH / 4) % TEXWIDTH;
 		e->floortexy = (int)(e->currentfloory * TEXHEIGHT / 4) % TEXHEIGHT;
-		e->color =
-			(mlx_get_pixel_clr(e->floor, e->floortexx, e->floortexy)
-				>> 1) & 8355711;
+		e->color = mlx_get_pixel_clr(e->floor, e->floortexx, e->floortexy);
 		mlx_pixel_put(e->mlx, e->win, x, y, e->color);
 		e->color = mlx_get_pixel_clr(e->ceiling, e->floortexx, e->floortexy);
 		mlx_pixel_put(e->mlx, e->win, x, (WIN_Y - y), e->color);

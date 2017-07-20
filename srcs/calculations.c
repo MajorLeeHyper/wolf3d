@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/19 14:40:39 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/19 15:23:54 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/19 17:44:03 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	distance_to_wall(t_env *env)
 {
 	if (env->side == 0)
 	{
-		env->perwalldist = (env->mapx - env->rayposx + (1 - env->stepx) / 2) /
-			env->raydirx;
+		env->perwalldist = (env->mapx - env->rayposx +
+				(1 - env->stepx) / 2) / env->raydirx;
 	}
 	else
 	{

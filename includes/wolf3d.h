@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/19 14:53:49 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/19 15:43:43 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 13:14:13 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <math.h>
 # include <time.h>
 
-# define WIN_X 800
-# define WIN_Y 600
+# define WIN_X 640
+# define WIN_Y 480
 
 # define TEXWIDTH 64
 # define TEXHEIGHT 64
@@ -90,6 +90,7 @@ typedef struct	s_env
 	void	*floor;
 	void	*goal;
 	void	*gg;
+	void	*ice;
 	int		texnum;
 
 	int		start;
@@ -129,5 +130,6 @@ int			texture_color(t_env *env, int x, int y);
 void		add_textures(t_env *env);
 void		splash(t_env *env);
 void		winner(t_env *env);
+void		replay(t_env *env);
 
 #endif
