@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/19 14:04:22 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/20 11:56:52 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 15:34:27 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	splash(t_env *env)
 {
 	env->start = 0;
 	mlx_put_image_to_window(env->mlx, env->win, env->splash, 0, 0);
-	mlx_string_put(env->mlx, env->win, 255, 281, 0xFFFFFF, "Press Enter");
+	mlx_string_put(env->mlx, env->win, 255, 350, 0xFFFFFF, "Press Enter");
 }
 
 void	winner(t_env *env)

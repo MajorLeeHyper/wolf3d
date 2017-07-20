@@ -6,7 +6,7 @@
 /*   By: dnelson <dnelson@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 16:25:52 by dnelson           #+#    #+#             */
-/*   Updated: 2017/07/20 15:30:58 by dnelson          ###   ########.fr       */
+/*   Updated: 2017/07/20 15:38:40 by dnelson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ void	more_wall(int x, int y, t_env *env)
 {
 	if (y == 16 && x >= 1 && x <= 22)
 	{
-		if (x == 19 || x == 1)
+		if (x == 19 || x == 1 || x == 2)
 			env->worldmap[x][y] = 0;
 		else
 			env->worldmap[x][y] = 3;
 	}
-	else if (x == 2 && y >= 1 && y <= 22)
+	else if (x == 3 && y >= 1 && y <= 22)
 	{
-		if (y == 10 || y == 20)
+		if (y == 10 || y == 20 || y == 2)
 			env->worldmap[x][y] = 0;
 		else
 			env->worldmap[x][y] = 2;
